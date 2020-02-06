@@ -10,14 +10,25 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+  $("a").click(projectClick);
 }
+
+function projectClick(e) { 
+    // prevent the page from reloading 
+    e.preventDefault();
+    var text = $(this).text();
+    $(this).text(anagrammedName(text));
+    // In an event handler, $(this) refers to 
+    // the object that triggered the event 
+}
+
 
 function anagrammedName(name) {
 	// Thanks, Internet Anagram Server!
-	
+
 	if (name == "Doug Engelbart") {
 		return "Notable Grudge";
-	} 
+	}
 	else if (name == "Ivan Sutherland") {
 		return "Vandal Heist Run";
 	}
